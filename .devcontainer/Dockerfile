@@ -88,6 +88,7 @@ RUN mkdir /tmp/trivy \
 RUN apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+    
     # Cuối Dockerfile
 WORKDIR /workspace  # hoặc thư mục chứa code
 COPY . /workspace
