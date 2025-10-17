@@ -88,6 +88,16 @@ RUN mkdir /tmp/trivy \
 RUN apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+    # Cuối Dockerfile
+WORKDIR /workspace  # hoặc thư mục chứa code
+COPY . /workspace
+
+# Install dependencies
+RUN npm install
+
+# Chạy Node.js app khi container start
+CMD ["node", "index.js"]
+
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
