@@ -92,13 +92,19 @@ RUN apt-get autoremove -y \
     
     # Cuối Dockerfile
 WORKDIR /workspace
-COPY app/ /workspace
 
-# Install dependencies
+# Copy package.json & package-lock.json từ src/
+COPY src/package*.json ./
+
+# Cài dependencies trước (cái này giúp cache tốt hơn)
 RUN npm install
 
-# Chạy Node.js app khi container start
-CMD ["sh", "-c", "node index.js && tail -f /dev/null"]
+# Copy toàn bộ source code từ src/ vào container
+COPY src/ .
+
+# Chạy Node app
+CMD ["node", "index.js"]
+
 
 
 
