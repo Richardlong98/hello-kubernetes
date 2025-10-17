@@ -4,6 +4,7 @@
 #-------------------------------------------------------------------------------------------------------------
 
 FROM node:18-bullseye
+RUN sed -i 's/stretch/bullseye/g' /etc/apt/sources.list || true
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
