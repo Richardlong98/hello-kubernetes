@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM node:18-bullseye
+FROM node:20-bullseye
 RUN sed -i 's/stretch/bullseye/g' /etc/apt/sources.list || true
 
 # Avoid warnings by switching to noninteractive
