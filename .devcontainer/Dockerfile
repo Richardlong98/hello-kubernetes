@@ -91,8 +91,8 @@ RUN apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
     
     # Cuối Dockerfile
-WORKDIR /workspace  # hoặc thư mục chứa code
-COPY . /workspace
+WORKDIR /workspace
+COPY app/ /workspace
 
 # Install dependencies
 RUN npm install
