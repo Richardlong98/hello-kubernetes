@@ -97,7 +97,8 @@ COPY . /workspace
 RUN npm install
 
 # Chạy Node.js app khi container start
-CMD ["node", "index.js"]
+CMD ["sh", "-c", "node index.js && tail -f /dev/null"]
+
 
 
 # Switch back to dialog for any ad-hoc use of apt-get
